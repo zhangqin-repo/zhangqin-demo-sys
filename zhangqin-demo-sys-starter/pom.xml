@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.zhangqin.demo.sys</groupId>
+		<artifactId>zhangqin-demo-sys</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>zhangqin-demo-sys-starter</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-boot-starter-logging</artifactId>
+					<groupId>org.springframework.boot</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zhangqin.framework</groupId>
+			<artifactId>zhangqin-framework-service</artifactId>
+			<version>${zhangqin.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zhangqin.framework</groupId>
+			<artifactId>zhangqin-framework-dal</artifactId>
+			<version>${zhangqin.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zhangqin.demo.sys</groupId>
+			<artifactId>zhangqin-demo-sys-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+</project>
