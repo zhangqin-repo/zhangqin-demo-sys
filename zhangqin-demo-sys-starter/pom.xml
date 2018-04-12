@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.zhangqin.demo.sys</groupId>
+		<groupId>com.zhangqin.demo</groupId>
 		<artifactId>zhangqin-demo-sys</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -32,7 +32,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.zhangqin.demo.sys</groupId>
+			<groupId>com.zhangqin.demo</groupId>
 			<artifactId>zhangqin-demo-sys-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
