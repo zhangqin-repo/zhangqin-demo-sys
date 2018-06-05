@@ -13,7 +13,7 @@
 	</parent>
 	
 	<properties>
-		<zhangqin.framework.version>0.0.1-SNAPSHOT</zhangqin.framework.version>
+		<zhangqin.framework.version>0.0.2-SNAPSHOT</zhangqin.framework.version>
 	</properties>
 
 	<modules>
