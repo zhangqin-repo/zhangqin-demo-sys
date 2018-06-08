@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.zhangqin.framework.gpe.annotation.ExcelCell;
 import com.zhangqin.framework.gpe.annotation.GpeField;
 import com.zhangqin.framework.gpe.annotation.GpeHeader;
 import com.zhangqin.framework.gpe.enums.DockType;
@@ -33,14 +32,12 @@ public class RoleTypeVo implements Serializable {
 	 * 编号
 	 */
 	@GpeField(docks = { DockType.EASYUI_FORMATTER, DockType.EASYUI_EDITOR, DockType.EASYUI_STYLER })
-	@ExcelCell(title = "编号")
 	private String code;
 
 	/**
 	 * 名称
 	 */
 	@GpeField
-	@ExcelCell(title = "名称")
 	private String name;
 	/**
 	 * 排序
@@ -51,7 +48,6 @@ public class RoleTypeVo implements Serializable {
 	 * 备注
 	 */
 	@GpeField
-	@ExcelCell(title = "备注")
 	private String remark;
 	/**
 	 * 创建时间
