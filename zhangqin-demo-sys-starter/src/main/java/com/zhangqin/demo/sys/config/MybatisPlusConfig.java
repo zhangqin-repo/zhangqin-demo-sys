@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.type.EnumOrdinalTypeHandler;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.baomidou.mybatisplus.MybatisConfiguration;
 import com.baomidou.mybatisplus.incrementer.H2KeyGenerator;
 import com.baomidou.mybatisplus.incrementer.IKeyGenerator;
 import com.baomidou.mybatisplus.mapper.ISqlInjector;
@@ -19,6 +21,7 @@ import com.baomidou.mybatisplus.plugins.parser.ISqlParser;
 import com.baomidou.mybatisplus.plugins.parser.tenant.TenantHandler;
 import com.baomidou.mybatisplus.spring.boot.starter.MybatisPlusProperties;
 import com.github.pagehelper.PageHelper;
+import com.zhangqin.framework.common.enums.CompareOperator;
 import com.zhangqin.framework.dal.mybatisplus.MyMetaObjectHandler;
 import com.zhangqin.framework.dal.mybatisplus.MySqlInjector;
 import com.zhangqin.framework.dal.mybatisplus.MyTenantSqlParser;
