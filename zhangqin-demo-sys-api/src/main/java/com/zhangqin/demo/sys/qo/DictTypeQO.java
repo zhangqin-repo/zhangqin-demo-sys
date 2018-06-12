@@ -1,8 +1,10 @@
 package com.zhangqin.demo.sys.qo;
 
-import com.zhangqin.framework.common.qo.BaseQo;
+import java.util.List;
 
-public class DictTypeQO extends BaseQo {
+import com.zhangqin.framework.gpe.entity.BaseQO;
+
+public class DictTypeQO extends BaseQO {
 
 	/**
 	 * serialVersionUID
@@ -13,6 +15,8 @@ public class DictTypeQO extends BaseQo {
 	 * 类型编号
 	 */
 	private String typeCode;
+	
+	List<String> test;
 
 	public String getTypeCode() {
 		return typeCode;
@@ -20,6 +24,16 @@ public class DictTypeQO extends BaseQo {
 
 	public void setTypeCode(String typeCode) {
 		this.typeCode = typeCode;
+	}
+	
+	
+
+	public List<String> getTest() {
+		return test;
+	}
+
+	public void setTest(List<String> test) {
+		this.test = test;
 	}
 
 	@Override

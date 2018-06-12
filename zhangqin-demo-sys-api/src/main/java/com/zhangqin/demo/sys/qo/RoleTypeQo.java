@@ -1,9 +1,9 @@
 package com.zhangqin.demo.sys.qo;
 
-import com.zhangqin.framework.common.qo.BaseQo;
 import com.zhangqin.framework.gpe.annotation.GpeSearchField;
+import com.zhangqin.framework.gpe.entity.BaseQO;
 
-public class RoleTypeQo extends BaseQo {
+public class RoleTypeQo extends BaseQO {
 
 	/**
 	 * serialVersionUID

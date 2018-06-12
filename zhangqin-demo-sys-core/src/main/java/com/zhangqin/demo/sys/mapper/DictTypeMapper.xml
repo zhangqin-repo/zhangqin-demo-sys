@@ -39,11 +39,14 @@
 			<if test="null != rules">
 				<foreach collection="rules" item="item">
 					<choose>
-						<when test="item.rule.value == 'EQ'">
-							AND type_code = #{${item.field}}
+						<when test="item.rule.value == 'EQ' and null != item.field">
+							AND ${item.fieldUnderline} = #{${item.field}}
 						</when>
-						<when test="item.rule.value == 'LK_R'">
-							AND type_code LIKE CONCAT(#{${item.field}},'%')
+						<when test="item.rule.value == 'LK_L' and null != item.field">
+							AND ${item.fieldUnderline} LIKE CONCAT('%',#{${item.field}})
+						</when>
+						<when test="item.rule.value == 'LK_R' and null != item.field">
+							AND ${item.fieldUnderline} LIKE CONCAT(#{${item.field}},'%')
 						</when>
 					</choose>
 				</foreach>

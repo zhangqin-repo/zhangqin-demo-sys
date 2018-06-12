@@ -3,14 +3,14 @@ package com.zhangqin.demo.sys.qo;
 import java.io.Serializable;
 import java.util.List;
 
-import com.zhangqin.framework.common.qo.BaseQo;
+import com.zhangqin.framework.gpe.entity.BaseQO;
 
 /**
  * 字典查询对象
  * @author zhangqin
  *
  */
-public class DictQo extends BaseQo implements Serializable{
+public class DictQo extends BaseQO implements Serializable{
 
 	/**
 	 * serialVersionUID
