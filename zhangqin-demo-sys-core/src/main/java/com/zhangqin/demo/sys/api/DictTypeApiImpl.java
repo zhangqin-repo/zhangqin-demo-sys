@@ -27,10 +27,8 @@ public class DictTypeApiImpl implements DictTypeApi {
 	private DictTypeService dictTypeService;
 
 	@Override
-	public List<DictTypeVO> findList() {
-		DictTypeQO qo = new DictTypeQO();
+	public List<DictTypeVO> findList(DictTypeQO qo) {
 		List<DictType> list = dictTypeService.listByQo(qo);
-
 		return BeanMapper.mapList(list, DictTypeVO.class);
 	}
 
@@ -40,7 +38,7 @@ public class DictTypeApiImpl implements DictTypeApi {
 		qo.setTypeCode("01");
 		
 		// 设置规则
-		qo.getRules().add("typeCode", CompareOperator.LK_R);
+		qo.getNbsRules().add("typeCode", CompareOperator.LR);
 		
 		List<DictType> list = dictTypeService.listByQo(qo);
 
@@ -52,7 +50,7 @@ public class DictTypeApiImpl implements DictTypeApi {
 		DictTypeQO qo = new DictTypeQO();
 		qo.setTypeCode("02");
 		// 设置规则
-		qo.getRules().add("typeCode", CompareOperator.LK_R);
+		qo.getNbsRules().add("typeCode", CompareOperator.LR);
 				
 		List<DictType> list = dictTypeService.listByQo(qo);
 

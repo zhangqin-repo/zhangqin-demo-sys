@@ -1,6 +1,6 @@
 package com.zhangqin.demo.sys.qo;
 
-import com.zhangqin.framework.gpe.annotation.GpeSearchField;
+import com.zhangqin.framework.gpe.annotation.NbsField;
 import com.zhangqin.framework.gpe.entity.BaseQO;
 
 public class RoleTypeQo extends BaseQO {
@@ -10,7 +10,7 @@ public class RoleTypeQo extends BaseQO {
 	 */
 	private static final long serialVersionUID = -6517660983880797198L;
 
-	@GpeSearchField(title = "关键字")
+	@NbsField(title = "关键字")
 	private String keyword;
 
 	public String getKeyword() {

@@ -36,21 +36,75 @@
 			sys_dict_type
 		WHERE
 			is_deleted = 0
-			<if test="null != rules">
-				<foreach collection="rules" item="item">
-					<choose>
-						<when test="item.rule.value == 'EQ' and null != item.field">
-							AND ${item.fieldUnderline} = #{${item.field}}
-						</when>
-						<when test="item.rule.value == 'LK_L' and null != item.field">
-							AND ${item.fieldUnderline} LIKE CONCAT('%',#{${item.field}})
-						</when>
-						<when test="item.rule.value == 'LK_R' and null != item.field">
-							AND ${item.fieldUnderline} LIKE CONCAT(#{${item.field}},'%')
-						</when>
-					</choose>
-				</foreach>
+			<!-- 关键字 -->
+			<if test="null != keyword">
+				AND (type_code LIKE CONCAT(#{keyword},'%') OR type_name LIKE CONCAT(#{keyword},'%'))
 			</if>
+			<!-- 高级查询 -->
+			<include refid="SQL_NBS_RULES_FOREACH" />
 	</select>
+	
+	
+	<!-- 查询规则 -->
+	<sql id="SQL_NBS_RULES_FOREACH">
+		<if test="null != nbsRules and nbsRules.size() > 0">
+			<foreach collection="nbsRules" item="rule">
+				<choose>
+					<!-- 等于 -->
+					<when test="rule.operator.value == 'EQ' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> = #{${rule.property}}
+					</when>
+					<!-- 不等于 -->
+					<when test="rule.operator.value == 'NE' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> != #{${rule.property}}
+					</when>
+					<!-- 大于 -->
+					<when test="rule.operator.value == 'GT' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> &gt; #{${rule.property}}
+					</when>
+					<!-- 大于或等于 -->
+					<when test="rule.operator.value == 'GE' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> &gt;= #{${rule.property}}
+					</when>
+					<!-- 小于 -->
+					<when test="rule.operator.value == 'LT' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> &lt; #{${rule.property}}
+					</when>
+					<!-- 小于或等于 -->
+					<when test="rule.operator.value == 'LE' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> &lt;= #{${rule.property}}
+					</when>
+					<!-- 包含 -->
+					<when test="rule.operator.value == 'LK' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> LIKE CONCAT('%',#{${rule.property}},'%')
+					</when>
+					<!-- 左包含 -->
+					<when test="rule.operator.value == 'LL' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> LIKE CONCAT('%',#{${rule.property}})
+					</when>
+					<!-- 右包含 -->
+					<when test="rule.operator.value == 'LR' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> LIKE CONCAT(#{${rule.property}},'%')
+					</when>
+					<!-- 不包含 -->
+					<when test="rule.operator.value == 'NL' and null != rule.property">
+						AND <include refid="SQL_NBS_RULE_COLUMN" /> NOT LIKE CONCAT('%',#{${rule.property}},'%')
+					</when>
+				</choose>
+			</foreach>
+		</if>
+	</sql>
+	
+	<!-- 获取高级查询列名 -->
+	<sql id="SQL_NBS_RULE_COLUMN">
+		<choose>
+			<when test="null != rule.tableAlias and '' != rule.tableAlias">
+				${rule.tableAlias}.${rule.column}
+			</when>
+			<otherwise>
+				${rule.column}
+			</otherwise>
+		</choose>
+	</sql>
 	
 </mapper>

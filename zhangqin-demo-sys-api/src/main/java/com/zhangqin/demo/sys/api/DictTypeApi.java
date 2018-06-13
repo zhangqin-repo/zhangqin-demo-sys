@@ -2,6 +2,7 @@ package com.zhangqin.demo.sys.api;
 
 import java.util.List;
 
+import com.zhangqin.demo.sys.qo.DictTypeQO;
 import com.zhangqin.demo.sys.vo.dict.DictTypeVO;
 
 /**
@@ -14,7 +15,7 @@ public interface DictTypeApi {
 	 * 查找基础代码字典类型列表
 	 * @return
 	 */
-	List<DictTypeVO> findList();
+	List<DictTypeVO> findList(DictTypeQO qo);
 	
 	/**
 	 * 查找基础代码字典类型列表
