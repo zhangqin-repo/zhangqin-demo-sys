@@ -16,7 +16,7 @@ import com.zhangqin.framework.gpe.enums.DockType;
  *
  */
 @GpeHeader(title = "角色类型")
-public class RoleTypeVo implements Serializable {
+public class RoleTypeVO implements Serializable {
 	/**
 	 * serialVersionUID
 	 */
